@@ -35,12 +35,16 @@ Before running the application, you need to have the following installed:
 
 ## Demo
 
+### Login page
 ![Login page](./demo/Login.png)
 
+### Home page
 ![Home page](./demo/home.png)
 
+### Blog page
 ![Blog page](./demo/blog.png)
 
+### Publish Blog page
 ![Creating a blog](./demo/publish.png)
 
 ## Contributing
