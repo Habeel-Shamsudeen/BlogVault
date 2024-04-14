@@ -1,0 +1,1 @@
+export const BACKEND_URL="https://backend.habeelshamsudeen9895.workers.dev" 
