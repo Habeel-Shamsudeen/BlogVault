@@ -4,7 +4,7 @@ import { Quote } from "../components/Quote";
 import { useUser } from "../hooks";
 
 export const Signin = () => {
-  const {loading,user,isLoggedIn} = useUser();
+  const {isLoggedIn} = useUser();
   const navigate = useNavigate();
   if(isLoggedIn){
     navigate('/blogs');
