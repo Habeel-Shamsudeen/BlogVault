@@ -11,6 +11,12 @@ export interface Blog{
     imgTag?:string|undefined;
 }
 
+export interface User{
+  id:string;
+  name:string;
+  posts:Blog[]
+}
+
 export const useBlog=({id}:{id:string|undefined})=>{
     const [loading, setLoading] = useState(true);
     const [blog, setBlog] = useState<Blog>();
@@ -62,3 +68,33 @@ export const useBlogs = () => {
     blogs,
   };
 };
+
+export const useUser = () =>{
+  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState<User>();
+  const [isLoggedIn,setIsloggedIn] = useState(false);
+  async function getUser() {
+    try {
+      const response = await axios.get(`${BACKEND_URL}/api/v1/user/me`, {
+        headers: {
+          Authorization:"Bearer "+localStorage.getItem("token"),
+        },
+      });
+      setUser(response.data.user);
+      setLoading(false);
+      setIsloggedIn(true);
+    } catch (error) {
+      console.error("Error fetching user:", error);
+      setLoading(false);
+    }
+  }
+  useEffect(() => {
+    getUser();
+  }, []);
+  return {
+    loading,
+    user,
+    isLoggedIn
+  };
+}
+

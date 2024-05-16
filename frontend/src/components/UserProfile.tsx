@@ -1,4 +1,4 @@
-export default function Component() {
+export  const UserProfile =() => {
     return (
       <div className="w-full max-w-3xl px-0">
         <div className="space-y-6">

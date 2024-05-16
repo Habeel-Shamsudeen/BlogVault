@@ -1,5 +1,6 @@
 import { Hono } from "hono";
-import { signinController, signupController } from "../controller/userController";
+import { getUserData, signinController, signupController } from "../controller/userController";
+import { authMiddleware } from "../middleware/authMiddleware";
 
 export const userRouter = new Hono<{
 	Bindings: {
@@ -11,3 +12,6 @@ export const userRouter = new Hono<{
 userRouter.post("/signup",signupController);
 
 userRouter.post("/signin",signinController);
+
+userRouter.use('/me',authMiddleware);
+userRouter.get('/me',getUserData);

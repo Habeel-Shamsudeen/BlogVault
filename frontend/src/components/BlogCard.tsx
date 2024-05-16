@@ -55,11 +55,11 @@ export const BlogCard = ({
 };
 
 export function Avatar({
-  name,
+  name="Anonymous",
   size = "small",
   onClick,
 }: {
-  name: string;
+  name?: string;
   size?: "big" | "small";
   onClick?: () => void;
 }) {
@@ -71,7 +71,7 @@ export function Avatar({
       }`}
     >
       <span
-        className={`font-normal text-gray-600 ${
+        className={`font-normal text-gray-600 cursor-pointer ${
           size === "big" ? "text-xl" : "text-base"
         }`}
       >
