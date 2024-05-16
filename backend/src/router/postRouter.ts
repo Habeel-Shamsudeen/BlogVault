@@ -11,15 +11,10 @@ export const postRouter = new Hono<{
     userId:string
   }
 }>();
-postRouter.use('/*',authMiddleware);
+postRouter.post("/", authMiddleware, PostBlog);
+postRouter.put("/", authMiddleware, updatePost);
+postRouter.get("/bulk", getAllPost);
+postRouter.get("/:id", getPostbyId);
+postRouter.delete("/:id", authMiddleware, deletePost);
 
-postRouter.post("/",PostBlog);
-
-postRouter.put("/",updatePost);
-
-postRouter.get("/bulk",getAllPost);
-
-postRouter.get("/:id",getPostbyId);
-
-postRouter.delete("/:id",deletePost);
 

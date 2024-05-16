@@ -100,3 +100,27 @@ export async function signinController(c: Context) {
     return c.text("Internal Server Error", StatusCode.NOTFOUND);
   }
 }
+
+export async function getUserData(c:Context){
+  const prisma = new PrismaClient({
+    datasourceUrl: c.env.DATABASE_URL,
+  }).$extends(withAccelerate());
+  try {
+    const userId:string = c.get('userId');
+    const user=await prisma.user.findFirst({
+      where:{
+        id:userId
+      },
+      select:{
+        id:true,
+        name:true,
+        posts:true
+      }
+    });
+    return c.json({
+      user
+    });
+  } catch (error) {
+    return c.text("User not logged in", StatusCode.NOTPERMISSIOON);
+  }
+}
