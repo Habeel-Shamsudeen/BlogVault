@@ -43,7 +43,7 @@ export const BlogCard = ({
         <div className="col-span-5 sm:col-span-3">
           <div>
             <img
-              src={`https://source.unsplash.com/random/?${imgTag}`}
+              src={`https://placehold.co/600x400`}
               alt=""
               className="p-1 h-32 w-40 sm:h-40 sm:w-48"
             />

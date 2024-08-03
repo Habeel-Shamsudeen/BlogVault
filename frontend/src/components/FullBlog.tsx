@@ -10,7 +10,7 @@ export const FullBlog = ({ blog }: { blog: Blog | undefined }) => {
         </div>
         <div className="text-slate-500 pt-2">Posted on, 2 December 2023</div>
         <div className="py-2 max-h-lg">
-            <img src={`https://source.unsplash.com/random/?${blog?.title.replace(" ",",")}`} alt="" />
+            <img src={'https://placehold.co/600x400'} alt="" />
         </div>
         <div className="text-lg md:text-xl font-normal font-serif gap-2 leading-[2rem] tracking-wider">{blog?.content}</div>
       </div>

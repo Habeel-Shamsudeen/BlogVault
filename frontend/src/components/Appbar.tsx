@@ -30,7 +30,7 @@ export const Appbar = () => {
           <div className="text-2xl font-bold">BlogVault</div>
         </Link>
       </div>
-      {!loading && isLoggedIn ? (
+      {isLoggedIn ? (
         <div className="flex gap-4 items-center">
           <div className="flex justify-center">
             <SuprSendInbox
@@ -72,7 +72,7 @@ export const Appbar = () => {
             )}
           </div>
         </div>
-      ) : (
+      ) : !loading && !isLoggedIn?(
         <div className="flex gap-4 items-center">
           <div className="flex justify-center">
             <button
@@ -93,7 +93,7 @@ export const Appbar = () => {
             </button>
           </div>
         </div>
-      )}
+      ):(<div></div>)}
     </div>
   );
 };
