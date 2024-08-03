@@ -6,13 +6,14 @@ import write from "../assets/write-svgrepo-com.svg";
 import SuprSendInbox from "@suprsend/react-inbox";
 import "react-toastify/dist/ReactToastify.css";
 
-const apikey = import.meta.env.VITE_SUPRSEND_WORKSPACE_SECRET
-console.log(apikey);
+const apiKey = import.meta.env.VITE_SUPRSEND_WORKSPACE_KEY
+console.log(apiKey)
 
 export const Appbar = () => {
   const navigate = useNavigate();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const { loading, user, isLoggedIn } = useUser();
+  console.log(user?.id);
 
   const handleAvatarClick = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -35,9 +36,8 @@ export const Appbar = () => {
           <div className="flex justify-center">
             <SuprSendInbox
               workspaceKey={import.meta.env.VITE_SUPRSEND_WORKSPACE_KEY}
-              subscriberId="<subscriber_id>"
+              subscriberId={user?.id || ' '}
               distinctId={user?.id || ' '}
-              
             />
             <button
               type="button"
