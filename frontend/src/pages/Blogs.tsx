@@ -33,7 +33,6 @@ export const Blogs = () => {
                 title={blog.title}
                 content={blog.content}
                 publishedDate="12th December 2024"
-                imgTag={blog.title.replace(" ",",")}
               />
             ))}
           </div>
