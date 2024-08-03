@@ -6,7 +6,6 @@ interface BlogCardProps {
   title: string;
   content: string;
   publishedDate: string;
-  imgTag?: string;
 }
 
 export const BlogCard = ({
@@ -15,7 +14,6 @@ export const BlogCard = ({
   title,
   content,
   publishedDate,
-  imgTag = "",
 }: BlogCardProps) => {
   return (
     <Link to={`/blog/${id}`}>
