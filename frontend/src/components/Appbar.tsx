@@ -6,9 +6,6 @@ import write from "../assets/write-svgrepo-com.svg";
 import SuprSendInbox from "@suprsend/react-inbox";
 import "react-toastify/dist/ReactToastify.css";
 
-const apiKey = import.meta.env.VITE_SUPRSEND_WORKSPACE_KEY
-console.log(apiKey)
-
 export const Appbar = () => {
   const navigate = useNavigate();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
